@@ -1,5 +1,6 @@
 // Code your testbench here
 // or browse Examples
+//`include "ALU_B1.v"
 module tb_alu;
 
     // Inputs
@@ -20,6 +21,10 @@ module tb_alu;
     
     initial begin
         // Apply inputs.
+      $monitor($time,"A=%d,B=%d,op=%d,R=%d",A,B,Op,R); 
+      $dumpfile("ALU_B1.vcd"); 
+      $dumpvars(0,R);
+    
         A = 8'b01101010;
         B = 8'b00111011;
         Op = 0; #100;
@@ -30,6 +35,7 @@ module tb_alu;
         Op = 5; #100;
         Op = 6; #100;
         Op = 7; #100;
+        
     end
       
 endmodule
